@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify
-import os
-from pymongo import MongoClient
-from pymongo.errors import PyMongoError
-from bson import ObjectId
+# import os
+# from pymongo import MongoClient
+# from pymongo.errors import PyMongoError
+# from bson import ObjectId
 
 app = Flask(__name__)
-MONGO_URI = os.environ.get('mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority')
-client = MongoClient(MONGO_URI)
-db = client.get_database("BigData")
-collection = db.get_collection("Users")
+# MONGO_URI = os.environ.get('mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority')
+# client = MongoClient(MONGO_URI)
+# db = client.get_database("BigData")
+# collection = db.get_collection("Users")
 
 @app.route('/')
 def home():
