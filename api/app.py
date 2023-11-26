@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
-from pymongo import MongoClient
-from pymongo.errors import PyMongoError
-from bson import ObjectId
+# from pymongo import MongoClient
+# from pymongo.errors import PyMongoError
+# from bson import ObjectId
 
 app = Flask(__name__)
 
