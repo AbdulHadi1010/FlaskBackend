@@ -16,41 +16,41 @@ def about():
     return 'About'
 
 # Configure the MongoDB connection URI
-uri = 'mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority'
-client = MongoClient(uri)
+# uri = 'mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority'
+# client = MongoClient(uri)
 
-# Select the database and collection
-db = client.get_database("BigData")
-collection = db.get_collection("Users")
+# # Select the database and collection
+# db = client.get_database("BigData")
+# collection = db.get_collection("Users")
 
-@app.route('/process_data', methods=['POST'])
-def process_data():
-    try:
-        data = request.get_json()
-        print("Received JSON data:", data)
+# @app.route('/process_data', methods=['POST'])
+# def process_data():
+#     try:
+#         data = request.get_json()
+#         print("Received JSON data:", data)
 
-        # Retrieve data fields
-        name = data.get('name')
-        age = data.get('age')
-        number = data.get('number')
-        print(f"Received data - Name: {name}, Age: {age}, Number: {number}")
+#         # Retrieve data fields
+#         name = data.get('name')
+#         age = data.get('age')
+#         number = data.get('number')
+#         print(f"Received data - Name: {name}, Age: {age}, Number: {number}")
 
-        # Construct MongoDB record
-        record = {
-            'name': name,
-            'age': age,
-            'number': number
-        }
-        print("Constructed Record:", record)
-        # Insert data into MongoDB
-        result = collection.insert_one(record)
+#         # Construct MongoDB record
+#         record = {
+#             'name': name,
+#             'age': age,
+#             'number': number
+#         }
+#         print("Constructed Record:", record)
+#         # Insert data into MongoDB
+#         result = collection.insert_one(record)
 
-        return jsonify({"result": "Success: Data inserted into MongoDB!", "inserted_id": str(result.inserted_id)})
-    except PyMongoError as e:
-        return jsonify({"result": f"Failure: {str(e)}"})
+#         return jsonify({"result": "Success: Data inserted into MongoDB!", "inserted_id": str(result.inserted_id)})
+#     except PyMongoError as e:
+#         return jsonify({"result": f"Failure: {str(e)}"})
 
-@app.route('/search_user', methods=['GET'])
-def search_user():
+# @app.route('/search_user', methods=['GET'])
+# def search_user():
     name = request.args.get('name')
 
     # Search for the user by name
