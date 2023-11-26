@@ -6,9 +6,14 @@ from bson import ObjectId
 app = Flask(__name__)
 
 
+
 @app.route('/')
 def home():
-    return "Hello, Flask World!"
+    return 'Hello, World!'
+
+@app.route('/about')
+def about():
+    return 'About'
 
 # Configure the MongoDB connection URI
 uri = 'mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority'
