@@ -58,5 +58,5 @@ def search_user():
     else:
         return jsonify({"result": "Error: User not found."})
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
