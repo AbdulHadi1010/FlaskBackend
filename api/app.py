@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import os
-# from pymongo import MongoClient
-from pymongo.errors import PyMongoError
+from flask_pymongo import PyMongo
+# from pymongo.errors import PyMongoError
 
 app = Flask(__name__)
 # MONGO_URI = os.environ.get('mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority')
