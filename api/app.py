@@ -5,6 +5,11 @@ from bson import ObjectId
 
 app = Flask(__name__)
 
+
+@app.route('/')
+def home():
+    return "Hello, Flask World!"
+
 # Configure the MongoDB connection URI
 uri = 'mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/?retryWrites=true&w=majority'
 client = MongoClient(uri)
@@ -12,16 +17,6 @@ client = MongoClient(uri)
 # Select the database and collection
 db = client.get_database("BigData")
 collection = db.get_collection("Users")
-
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
-
-@app.route('/')
-def home():
-    return "Hello, Flask World!"
 
 @app.route('/process_data', methods=['POST'])
 def process_data():
@@ -63,5 +58,5 @@ def search_user():
     else:
         return jsonify({"result": "Error: User not found."})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
