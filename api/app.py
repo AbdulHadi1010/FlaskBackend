@@ -7,7 +7,9 @@ app = Flask(__name__)
 
 # Configure the MongoDB connection URI
 uri = 'mongodb+srv://AbdulHadi:khizer007@bigdata.jkwutqo.mongodb.net/test?retryWrites=true&w=majority'
-
+@app.route('/')
+def index():
+    return "Hello, Flask World!"
 # Create a PyMongo instance
 client = MongoClient(uri)
 
@@ -19,9 +21,7 @@ try:
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
-@app.route('/')
-def index():
-    return "Hello, Flask World!"
+
 
 @app.route('/process_data', methods=['POST'])
 def process_data():
